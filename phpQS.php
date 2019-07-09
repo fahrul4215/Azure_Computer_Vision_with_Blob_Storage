@@ -55,10 +55,12 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-apache_setenv('ACCOUNT_NAME', 'fahrul4215dicoding');
-apache_setenv('ACCOUNT_KEY', 'K/LLyN9KdzgBL+X7zn28XIRR+rSbjTehNLjONYoh6eAMi6b99NxkECbFTu12250VKppaBu9qRh+ceP5Wyo6otg==');
+// apache_setenv('ACCOUNT_NAME', 'fahrul4215dicoding');
+// apache_setenv('ACCOUNT_KEY', 'K/LLyN9KdzgBL+X7zn28XIRR+rSbjTehNLjONYoh6eAMi6b99NxkECbFTu12250VKppaBu9qRh+ceP5Wyo6otg==');
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+// $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=fahrul4215dicoding;AccountKey=K/LLyN9KdzgBL+X7zn28XIRR+rSbjTehNLjONYoh6eAMi6b99NxkECbFTu12250VKppaBu9qRh+ceP5Wyo6otg==;EndpointSuffix=core.windows.net";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
