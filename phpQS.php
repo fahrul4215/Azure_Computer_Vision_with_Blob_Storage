@@ -1,13 +1,6 @@
 <?php
 session_start();
-// if (isset($_SESSION['nama_file']) || !isset($_SESSION['nama_file'])) {
-//     if (!isset($_FILES['gambar'])) {
-//         if (empty($_GET)) {
-//             header('Location:index.php');
-//             die();
-//         }
-//     }
-// }
+
 // var_dump($_FILES['gambar']);
 // echo str_replace(' ', '', $_FILES['gambar']['tmp_name']);
 // echo "<br>";
