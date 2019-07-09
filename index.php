@@ -4,8 +4,9 @@
         $linkBlob = "https://fahrul4215dicoding.blob.core.windows.net/".$_SESSION['nama_container']."/".$_SESSION['nama_file'];
     }
 
-    require_once 'vendor/autoload.php';
-    require_once "./random_string.php";
+    define('__ROOT__', "https://sub2fahrul4215.azurewebsites.net/");
+    require_once __ROOT__.'vendor/autoload.php';
+    require_once __ROOT__."./random_string.php";
 
     use MicrosoftAzure\Storage\Blob\BlobRestProxy;
     use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
