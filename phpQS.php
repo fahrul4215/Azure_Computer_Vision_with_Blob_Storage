@@ -46,8 +46,8 @@ if (isset($_SESSION['nama_file']) || !isset($_SESSION['nama_file'])) {
 #
 **/
 
-require_once __DIR__.'/vendor/autoload.php';
-require_once __DIR__."/random_string.php";
+require_once "vendor/autoload.php";
+require_once "./random_string.php";
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;

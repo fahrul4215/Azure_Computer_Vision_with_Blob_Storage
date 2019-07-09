@@ -63,6 +63,8 @@
             .done(function(data) {
                 // Show formatted JSON on webpage.
                 $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                console.log(data);
+                $("#captionText").text(data.description.captions[0].text);
             })
             
             .fail(function(jqXHR, textStatus, errorThrown) {
@@ -103,6 +105,7 @@
             Source image:
             <br><br>
             <img id="sourceImage" width="400" />
+            <h3 id="captionText"></h3>
         </div>
     </div>
     <hr>
