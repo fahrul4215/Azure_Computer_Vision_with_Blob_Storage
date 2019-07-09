@@ -11,7 +11,44 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
-   
+    <?php 
+        if (!isset($_SESSION['nama_file'])) {
+    ?>
+    <h1>Analisa Gambar:</h1>
+    <br>
+    Pilih gambar untuk di upload :
+    <form action="phpQS.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="gambar" accept=".jpeg,.jpg,.png" required>
+        <input type="submit" name="submit" value="upload">
+    </form>
+    <?php
+        } else {
+    ?>
+    <button onclick="processImage()">Analyze image</button>
+    <input type="text" name="inputImage" id="inputImage" value="<?php echo $linkBlob ?>" readonly style="width:50%">
+    <br><br>
+    <div id="wrapper" style="width:1020px; display:table;">
+        <div id="jsonOutput" style="width:600px; display:table-cell;">
+            Response:
+            <br><br>
+            <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+        </div>
+        <div id="imageDiv" style="width:420px; display:table-cell;">
+            Source image:
+            <br><br>
+            <img id="sourceImage" width="400" />
+            <h3 id="captionText"></h3>
+        </div>
+    </div>
+    <hr>
+    <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $_SESSION['nama_container']; ?>">
+        <button type="submit">Press to clean up all resources created by this sample</button>
+    </form>
+    <?php
+        }
+    ?>
+
     <script type="text/javascript">
         function processImage() {
             // **********************************************
@@ -77,44 +114,5 @@
             });
         };
     </script>
-
-    <?php 
-        if (!isset($_SESSION['nama_file'])) {
-    ?>
-    <h1>Analisa Gambar:</h1>
-    <br>
-    Pilih gambar untuk di upload :
-    <form action="phpQS.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="gambar" accept=".jpeg,.jpg,.png" required>
-        <input type="submit" name="submit" value="upload">
-    </form>
-    <?php
-        } else {
-    ?>
-    <button onclick="processImage()">Analyze image</button>
-    <input type="text" name="inputImage" id="inputImage" value="<?php echo $linkBlob ?>" readonly style="width:50%">
-    <br><br>
-    <div id="wrapper" style="width:1020px; display:table;">
-        <div id="jsonOutput" style="width:600px; display:table-cell;">
-            Response:
-            <br><br>
-            <textarea id="responseTextArea" class="UIInput"
-            style="width:580px; height:400px;"></textarea>
-        </div>
-        <div id="imageDiv" style="width:420px; display:table-cell;">
-            Source image:
-            <br><br>
-            <img id="sourceImage" width="400" />
-            <h3 id="captionText"></h3>
-        </div>
-    </div>
-    <hr>
-    <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $_SESSION['nama_container']; ?>">
-        <button type="submit">Press to clean up all resources created by this sample</button>
-    </form>
-    <?php
-        }
-    ?>
-
 </body>
 </html>
