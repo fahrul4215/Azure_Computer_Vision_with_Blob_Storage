@@ -5,6 +5,8 @@
     }
 
     define('__ROOT__', dirname(__FILE__));
+    echo __ROOT__;
+    die();
     require_once __ROOT__.'/vendor/autoload.php';
     require_once __ROOT__."/random_string.php";
 
