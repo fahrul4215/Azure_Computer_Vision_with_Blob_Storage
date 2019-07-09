@@ -3,6 +3,24 @@
     if (isset($_SESSION['nama_file'])) {
         $linkBlob = "https://fahrul4215dicoding.blob.core.windows.net/".$_SESSION['nama_container']."/".$_SESSION['nama_file'];
     }
+
+    require_once 'vendor/autoload.php';
+    require_once "./random_string.php";
+
+    use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+    use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+    use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
+    use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+    use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
+
+    apache_setenv('ACCOUNT_NAME', 'fahrul4215dicoding');
+    apache_setenv('ACCOUNT_KEY', 'K/LLyN9KdzgBL+X7zn28XIRR+rSbjTehNLjONYoh6eAMi6b99NxkECbFTu12250VKppaBu9qRh+ceP5Wyo6otg==');
+
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+
+    // Create blob client.
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
+
 ?>
 <!DOCTYPE html>
 <html>
