@@ -39,8 +39,8 @@ session_start();
 #
 **/
 
-require_once 'vendor/autoload.php';
-require_once "./random_string.php";
+require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT']."/random_string.php";
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
