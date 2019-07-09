@@ -4,7 +4,7 @@ if (isset($_SESSION['nama_file']) || !isset($_SESSION['nama_file'])) {
     if (!isset($_FILES['gambar'])) {
         if (empty($_GET)) {
             header('Location:index.php');
-            die();
+            // die();
         }
     }
 }
